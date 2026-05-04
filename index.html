@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie – Discover Great Food Near You</title>
+    <meta name="description" content="Foodie helps you discover the best restaurants, cafes, and eateries near you. Order online, explore menus, and read real reviews.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- ===== LOCATION STATE (CSS Radio Hack) ===== -->
+<input type="radio" name="location" id="loc-mumbai" class="hidden-radio" checked>
+<input type="radio" name="location" id="loc-delhi" class="hidden-radio">
+<input type="radio" name="location" id="loc-bangalore" class="hidden-radio">
+<input type="radio" name="location" id="loc-hyderabad" class="hidden-radio">
+<input type="radio" name="location" id="loc-pune" class="hidden-radio">
+<input type="radio" name="location" id="loc-chennai" class="hidden-radio">
+<input type="radio" name="location" id="loc-kolkata" class="hidden-radio">
+<!-- ===== NAVBAR ===== -->
+<!-- CSS Checkbox Hack for mobile menu — hidden checkbox controls the drawer -->
+<input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
+
+<header class="navbar">
+    <div class="navbar-inner">
+
+        <!-- Logo -->
+        <a href="#" class="logo">
+            <span class="logo-icon">🍽️</span>
+            <span class="logo-text">Foodie</span>
+        </a>
+
+        <!-- Location Picker -->
+        <a href="#location" class="nav-location">
+            <span class="nav-location-icon">📍</span>
+            <span class="nav-location-text"></span>
+            <span class="nav-location-arrow">▾</span>
+        </a>
+
+        <!-- Nav Links (desktop) -->
+        <nav class="nav-links">
+            <a href="#menu" class="nav-link">Menu</a>
+            <a href="#offers" class="nav-link">Offers</a>
+            <a href="#reviews" class="nav-link">Reviews</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <!-- Nav Action Buttons (desktop) -->
+        <div class="nav-actions">
+            <a href="#login" class="btn-login">Log In</a>
+            <a href="#signup" class="btn-signup">Sign Up</a>
+        </div>
+
+        <!-- Hamburger Label (controls the hidden checkbox) -->
+        <label for="menu-toggle" class="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+    </div>
+</header>
+
+<!-- Mobile Drawer Menu (toggled purely by CSS checkbox) -->
+<div class="mobile-menu">
+    <label for="menu-toggle" class="mobile-close">✕</label>
+    <a href="#menu" class="mobile-link">🍽️ Menu</a>
+    <a href="#offers" class="mobile-link">🏷️ Offers</a>
+    <a href="#reviews" class="mobile-link">⭐ Reviews</a>
+    <a href="#contact" class="mobile-link">📞 Contact</a>
+    <div class="mobile-actions">
+        <a href="#login" class="btn-login">Log In</a>
+        <a href="#signup" class="btn-signup">Sign Up</a>
+    </div>
+</div>
+
+<!-- Dark overlay behind mobile menu (clicking closes menu via label) -->
+<label for="menu-toggle" class="mobile-overlay"></label>
+
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero">
+    <!-- Background -->
+    <div class="hero-bg">
+        <img src="images/food.jpg" alt="Delicious Food" class="hero-bg-img">
+        <div class="hero-overlay"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="hero-content">
+
+        <p class="hero-tagline">🔥 Order Food. Explore Places. Love Eating.</p>
+
+        <h1 class="hero-title">
+            Discover the <span class="hero-highlight">Best Food</span><br>Near You
+        </h1>
+
+        <p class="hero-subtitle">
+            Order from top restaurants, explore menus, read reviews — all in one place.
+        </p>
+
+        <!-- Big Search Bar (Zomato-style) -->
+        <div class="hero-search-box">
+            <!-- Location Selector -->
+            <div class="search-location">
+                <span class="search-loc-icon">📍</span>
+                <select class="search-loc-select">
+                    <option>Mumbai</option>
+                    <option>Delhi</option>
+                    <option>Bangalore</option>
+                    <option>Hyderabad</option>
+                    <option>Chennai</option>
+                    <option>Pune</option>
+                    <option>Kolkata</option>
+                </select>
+                <span class="search-loc-arrow">▾</span>
+            </div>
+
+            <!-- Divider -->
+            <div class="search-divider"></div>
+
+            <!-- Text Input -->
+            <div class="search-input-wrap">
+                <span class="search-input-icon">🔍</span>
+                <input
+                    type="text"
+                    class="search-input"
+                    placeholder="Search for restaurants, cuisines or a dish..."
+                    autocomplete="off"
+                >
+            </div>
+
+            <!-- Search Button (links to menu) -->
+            <a href="#menu" class="search-btn">Search</a>
+        </div>
+
+        <!-- Popular Tags -->
+        <div class="popular-tags">
+            <span class="popular-label">Popular:</span>
+            <a href="#menu" class="tag">🍕 Pizza</a>
+            <a href="#menu" class="tag">🍔 Burger</a>
+            <a href="#menu" class="tag">🍛 Biryani</a>
+            <a href="#menu" class="tag">🍣 Sushi</a>
+            <a href="#menu" class="tag">🍝 Pasta</a>
+        </div>
+
+    </div>
+
+    <!-- Stats Row -->
+    <div class="hero-stats">
+        <div class="stat-item">
+            <span class="stat-number">1,200+</span>
+            <span class="stat-label">Restaurants</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-number">50K+</span>
+            <span class="stat-label">Happy Customers</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-number">30 Min</span>
+            <span class="stat-label">Avg. Delivery</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-number">4.8 ⭐</span>
+            <span class="stat-label">Avg. Rating</span>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-dot"></div>
+    </div>
+
+</section>
+
+
+<!-- ===== MENU SECTION ===== -->
+<section class="menu" id="menu">
+    <h2>Popular Restaurants</h2>
+    <div class="menu-items">
+
+        <!-- 1. Burger -->
+        <div class="card">
+            <div class="card-img-wrap">
+                <img src="images/burger.jpg" alt="Burger">
+            </div>
+            <div class="card-info">
+                <div class="card-top-row">
+                    <h3 class="card-name">The Burger House</h3>
+                    <span class="card-rating">4.2 ★</span>
+                </div>
+                <p class="card-cuisine">American, Fast Food, Snacks</p>
+                <p class="card-location">Bandra West, Mumbai</p>
+                <p class="card-opens">Opens at 11:00am</p>
+                <div class="card-bottom-row">
+                    <span class="card-price">₹300 for two</span>
+                    <span class="card-distance">1.8 km</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Pizza -->
+        <div class="card">
+            <div class="card-img-wrap">
+                <img src="images/pizza.jpg" alt="Pizza">
+            </div>
+            <div class="card-info">
+                <div class="card-top-row">
+                    <h3 class="card-name">Pizza Primo</h3>
+                    <span class="card-rating">4.5 ★</span>
+                </div>
+                <p class="card-cuisine">Italian, Pizza, Pasta</p>
+                <p class="card-location">Andheri East, Mumbai</p>
+                <p class="card-opens">Opens at 12:00noon</p>
+                <div class="card-bottom-row">
+                    <span class="card-price">₹500 for two</span>
+                    <span class="card-distance">3.2 km</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Pasta -->
+        <div class="card">
+            <div class="card-img-wrap">
+                <img src="images/pasta.jpg" alt="Pasta">
+            </div>
+            <div class="card-info">
+                <div class="card-top-row">
+                    <h3 class="card-name">Pasta Paradise</h3>
+                    <span class="card-rating">4.0 ★</span>
+                </div>
+                <p class="card-cuisine">Italian, Continental, Desserts</p>
+                <p class="card-location">Juhu, Mumbai</p>
+                <p class="card-opens">Opens at 1:00pm</p>
+                <div class="card-bottom-row">
+                    <span class="card-price">₹400 for two</span>
+                    <span class="card-distance">5.1 km</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Grilled Sandwich -->
+        <div class="card">
+            <div class="card-img-wrap">
+                <img src="images/sandwich.jpg" alt="Grilled Sandwich">
+            </div>
+            <div class="card-info">
+                <div class="card-top-row">
+                    <h3 class="card-name">Sandwich Station</h3>
+                    <span class="card-rating">4.3 ★</span>
+                </div>
+                <p class="card-cuisine">Sandwiches, Wraps, Fries, Drinks</p>
+                <p class="card-location">Colaba, Mumbai</p>
+                <p class="card-opens">Opens at 10:00am</p>
+                <div class="card-bottom-row">
+                    <span class="card-price">₹350 for two</span>
+                    <span class="card-distance">2.5 km</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Nutella Crepes -->
+        <div class="card">
+            <div class="card-img-wrap">
+                <img src="images/crepes.jpg" alt="Nutella Crepes">
+            </div>
+            <div class="card-info">
+                <div class="card-top-row">
+                    <h3 class="card-name">Crepe Corner</h3>
+                    <span class="card-rating">4.7 ★</span>
+                </div>
+                <p class="card-cuisine">Desserts, Crepes, French, Waffles</p>
+                <p class="card-location">Powai, Mumbai</p>
+                <p class="card-opens">Opens at 11:00am</p>
+                <div class="card-bottom-row">
+                    <span class="card-price">₹250 for two</span>
+                    <span class="card-distance">4.0 km</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Paneer Paratha -->
+        <div class="card">
+            <div class="card-img-wrap">
+                <img src="images/paneer.jpg" alt="Paneer Paratha">
+            </div>
+            <div class="card-info">
+                <div class="card-top-row">
+                    <h3 class="card-name">Punjabi Tadka</h3>
+                    <span class="card-rating">4.4 ★</span>
+                </div>
+                <p class="card-cuisine">North Indian, Punjabi, Parathas</p>
+                <p class="card-location">Dadar, Mumbai</p>
+                <p class="card-opens">Opens at 8:00am</p>
+                <div class="card-bottom-row">
+                    <span class="card-price">₹280 for two</span>
+                    <span class="card-distance">3.7 km</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. Dahi Puri -->
+        <div class="card">
+            <div class="card-img-wrap">
+                <img src="images/dahi_puri.jpg" alt="Dahi Puri">
+            </div>
+            <div class="card-info">
+                <div class="card-top-row">
+                    <h3 class="card-name">Chaat House</h3>
+                    <span class="card-rating">4.6 ★</span>
+                </div>
+                <p class="card-cuisine">Street Food, Chaat, Pani Puri</p>
+                <p class="card-location">Churchgate, Mumbai</p>
+                <p class="card-opens">Opens at 12:00noon</p>
+                <div class="card-bottom-row">
+                    <span class="card-price">₹150 for two</span>
+                    <span class="card-distance">1.2 km</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. Rasmalai -->
+        <div class="card">
+            <div class="card-img-wrap">
+                <img src="images/rasmalai.jpg" alt="Rasmalai">
+            </div>
+            <div class="card-info">
+                <div class="card-top-row">
+                    <h3 class="card-name">Mithai Mahal</h3>
+                    <span class="card-rating">4.8 ★</span>
+                </div>
+                <p class="card-cuisine">Sweets, Mithai, Bengali Desserts</p>
+                <p class="card-location">Matunga, Mumbai</p>
+                <p class="card-opens">Opens at 9:00am</p>
+                <div class="card-bottom-row">
+                    <span class="card-price">₹200 for two</span>
+                    <span class="card-distance">6.3 km</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. Butter Chicken -->
+        <div class="card">
+            <div class="card-img-wrap">
+                <img src="images/butter_chicken.jpg" alt="Butter Chicken">
+            </div>
+            <div class="card-info">
+                <div class="card-top-row">
+                    <h3 class="card-name">Mughali Darbar</h3>
+                    <span class="card-rating">4.5 ★</span>
+                </div>
+                <p class="card-cuisine">North Indian, Mughlai, Curry</p>
+                <p class="card-location">Kurla, Mumbai</p>
+                <p class="card-opens">Opens at 11:30am</p>
+                <div class="card-bottom-row">
+                    <span class="card-price">₹600 for two</span>
+                    <span class="card-distance">7.1 km</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. Dumplings -->
+        <div class="card">
+            <div class="card-img-wrap">
+                <img src="images/dumplings.jpg" alt="Dumplings">
+            </div>
+            <div class="card-info">
+                <div class="card-top-row">
+                    <h3 class="card-name">Dragon Wok</h3>
+                    <span class="card-rating">4.3 ★</span>
+                </div>
+                <p class="card-cuisine">Chinese, Pan-Asian, Momos</p>
+                <p class="card-location">Lower Parel, Mumbai</p>
+                <p class="card-opens">Opens at 12:30pm</p>
+                <div class="card-bottom-row">
+                    <span class="card-price">₹450 for two</span>
+                    <span class="card-distance">4.8 km</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ===== OFFERS SECTION (hidden by default, shown on :target) ===== -->
+<section class="offers-section" id="offers">
+
+    <h2>Today's Best Offers</h2>
+    <p class="offers-subtitle">Exclusive deals picked just for you — limited time only!</p>
+
+    <div class="offers-grid">
+
+        <div class="offer-card">
+            <div class="offer-img-wrap">
+                <img src="images/burger.jpg" alt="Burger">
+            </div>
+            <div class="offer-body">
+                <span class="offer-badge">🔥 20% OFF</span>
+                <h3 class="offer-title">The Burger House</h3>
+                <p class="offer-desc">Get flat 20% off on all burgers and combos. Use code <strong>BURGER20</strong></p>
+                <div class="offer-footer">
+                    <span class="offer-validity">Valid till midnight</span>
+                    <a href="#menu" class="offer-btn">Order Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="offer-card">
+            <div class="offer-img-wrap">
+                <img src="images/butter_chicken.jpg" alt="Butter Chicken">
+            </div>
+            <div class="offer-body">
+                <span class="offer-badge">🔥 25% OFF</span>
+                <h3 class="offer-title">Mughali Darbar</h3>
+                <p class="offer-desc">25% off on Butter Chicken + Naan combos. Use code <strong>MUGHAL25</strong></p>
+                <div class="offer-footer">
+                    <span class="offer-validity">Valid today only</span>
+                    <a href="#menu" class="offer-btn">Order Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="offer-card">
+            <div class="offer-img-wrap">
+                <img src="images/sandwich.jpg" alt="Sandwich">
+            </div>
+            <div class="offer-body">
+                <span class="offer-badge">🎉 Buy 1 Get 1</span>
+                <h3 class="offer-title">Sandwich Station</h3>
+                <p class="offer-desc">Buy any sandwich and get one FREE with fries. Use code <strong>BOGO1</strong></p>
+                <div class="offer-footer">
+                    <span class="offer-validity">Valid this weekend</span>
+                    <a href="#menu" class="offer-btn">Order Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="offer-card">
+            <div class="offer-img-wrap">
+                <img src="images/pizza.jpg" alt="Pizza">
+            </div>
+            <div class="offer-body">
+                <span class="offer-badge">🔥 15% OFF</span>
+                <h3 class="offer-title">Pizza Primo</h3>
+                <p class="offer-desc">Flat 15% off on all pizzas above ₹400. Use code <strong>PIZZA15</strong></p>
+                <div class="offer-footer">
+                    <span class="offer-validity">Valid till Sunday</span>
+                    <a href="#menu" class="offer-btn">Order Now</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+<!-- ===== REVIEWS SECTION (hidden by default, shown on :target) ===== -->
+<section class="reviews" id="reviews">
+
+    <!-- Close button -->
+
+
+    <!-- Background banner with food image -->
+    <div class="reviews-banner">
+        <h2 class="reviews-banner-title">Testimonials</h2>
+        <p class="reviews-banner-sub">WHAT OUR FANTASTIC CLIENTS SAY</p>
+    </div>
+
+    <!-- Cards floating over the background -->
+    <div class="reviews-grid">
+
+        <div class="review-card">
+            <div class="review-avatar">
+                <div class="avatar-circle avatar-1">RS</div>
+            </div>
+            <div class="review-flourish">❧</div>
+            <p class="review-text">The food was absolutely amazing! Best burger I've ever had. The delivery was super fast and everything arrived hot. Will definitely order again and again!</p>
+            <p class="review-name">Rahul Sharma</p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-avatar">
+                <div class="avatar-circle avatar-2">PP</div>
+            </div>
+            <div class="review-flourish">❧</div>
+            <p class="review-text">Delivery was super fast and the pasta was creamy perfection. The paneer paratha was the best I've had in Mumbai. Highly recommended to everyone!</p>
+            <p class="review-name">Priya Patel</p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-avatar">
+                <div class="avatar-circle avatar-3">AM</div>
+            </div>
+            <div class="review-flourish">❧</div>
+            <p class="review-text">Great variety on the menu and the pizza was cheesy and delicious. The dahi puri was an absolute street food gem. Love this place so much!</p>
+            <p class="review-name">Ananya Mehta</p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ===== CONTACT SECTION (hidden by default, shown on :target) ===== -->
+<section class="contact" id="contact">
+    <!-- Close button -->
+
+    <h2>Contact Us</h2>
+    <p class="contact-subtitle">Have a question or feedback? We'd love to hear from you!</p>
+    <form>
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Your Email">
+        <textarea placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+
+
+<!-- ===== LOGIN PAGE (full-screen :target overlay) ===== -->
+<section class="auth-page" id="login">
+    <div class="auth-backdrop"></div>
+    <div class="auth-card">
+        <a href="#" class="auth-logo">🍽️ Foodie</a>
+        <h2 class="auth-title">Welcome Back!</h2>
+        <p class="auth-subtitle">Sign in to your account to continue</p>
+        <form class="auth-form">
+            <div class="auth-field">
+                <label>Email Address</label>
+                <input type="email" placeholder="you@example.com">
+            </div>
+            <div class="auth-field">
+                <label>Password</label>
+                <input type="password" placeholder="Enter your password">
+            </div>
+            <div class="auth-options">
+                <label class="auth-remember">
+                    <input type="checkbox"> Remember me
+                </label>
+                <a href="#" class="auth-forgot">Forgot password?</a>
+            </div>
+            <button type="submit" class="auth-btn">Log In</button>
+        </form>
+        <p class="auth-switch">Don't have an account? <a href="#signup">Sign Up</a></p>
+    </div>
+</section>
+
+
+<!-- ===== SIGNUP PAGE (full-screen :target overlay) ===== -->
+<section class="auth-page" id="signup">
+    <div class="auth-backdrop"></div>
+    <div class="auth-card">
+        <a href="#" class="auth-logo">🍽️ Foodie</a>
+        <h2 class="auth-title">Create Account</h2>
+        <p class="auth-subtitle">Join thousands of food lovers today!</p>
+        <form class="auth-form">
+            <div class="auth-field">
+                <label>Full Name</label>
+                <input type="text" placeholder="Your full name">
+            </div>
+            <div class="auth-field">
+                <label>Email Address</label>
+                <input type="email" placeholder="you@example.com">
+            </div>
+            <div class="auth-field">
+                <label>Phone Number</label>
+                <input type="tel" placeholder="+91 98765 43210">
+            </div>
+            <div class="auth-field">
+                <label>Password</label>
+                <input type="password" placeholder="Create a password">
+            </div>
+            <button type="submit" class="auth-btn">Create Account</button>
+        </form>
+        <p class="auth-switch">Already have an account? <a href="#login">Log In</a></p>
+    </div>
+</section>
+
+
+<!-- ===== LOCATION PAGE (full-screen :target overlay) ===== -->
+<section class="auth-page" id="location">
+    <div class="auth-backdrop"></div>
+    <div class="auth-card">
+        <a href="#" class="auth-logo" style="color: var(--dark);">📍 Select Location</a>
+        <h2 class="auth-title">Where are you?</h2>
+        <p class="auth-subtitle">Choose your city to see restaurants near you</p>
+        
+        <div class="auth-field" style="margin-bottom: 20px;">
+            <input type="text" placeholder="Search your city..." style="padding-left: 36px; background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23757575%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><circle cx=%2211%22 cy=%2211%22 r=%228%22></circle><line x1=%2221%22 y1=%2221%22 x2=%2216.65%22 y2=%2216.65%22></line></svg>'); background-repeat: no-repeat; background-position: 12px center;">
+        </div>
+
+        <div class="location-list">
+            <label for="loc-mumbai" class="location-item">Mumbai, India</label>
+            <label for="loc-delhi" class="location-item">Delhi NCR, India</label>
+            <label for="loc-bangalore" class="location-item">Bangalore, India</label>
+            <label for="loc-hyderabad" class="location-item">Hyderabad, India</label>
+            <label for="loc-pune" class="location-item">Pune, India</label>
+            <label for="loc-chennai" class="location-item">Chennai, India</label>
+            <label for="loc-kolkata" class="location-item">Kolkata, India</label>
+        </div>
+        
+        <a href="#" class="auth-btn" style="text-align: center; margin-top: 20px; display: block;">Save Location</a>
+    </div>
+</section>
+
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+
+    <!-- Main footer grid -->
+    <div class="footer-main">
+
+        <!-- Col 1: Logo + copyright -->
+        <div class="footer-brand">
+            <div class="footer-logo">🍽️ Foodie</div>
+            <p class="footer-copy">© 2026 Foodie Limited</p>
+            <p class="footer-tagline">Order food. Explore places.<br>Love eating.</p>
+        </div>
+
+        <!-- Col 2: Company -->
+        <div class="footer-col">
+            <h4>Company</h4>
+            <a href="#">About Us</a>
+            <a href="#">Careers</a>
+            <a href="#">Team</a>
+            <a href="#">Foodie Corporate</a>
+            <a href="#">Foodie One</a>
+            <a href="#">Foodie Dineout</a>
+            <a href="#">Blog</a>
+        </div>
+
+        <!-- Col 3: Contact -->
+        <div class="footer-col">
+            <h4>Contact Us</h4>
+            <a href="#">Help &amp; Support</a>
+            <a href="#contact">Partner With Us</a>
+            <a href="#">Ride With Us</a>
+            <h4 style="margin-top:20px">Legal</h4>
+            <a href="#">Terms &amp; Conditions</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+
+        <!-- Col 4: Available in -->
+        <div class="footer-col">
+            <h4>Available In</h4>
+            <a href="#">Mumbai</a>
+            <a href="#">Delhi</a>
+            <a href="#">Bangalore</a>
+            <a href="#">Hyderabad</a>
+            <a href="#">Pune</a>
+            <a href="#">Chennai</a>
+            <a href="#">Kolkata</a>
+        </div>
+
+        <!-- Col 5: Life at Foodie + Social -->
+        <div class="footer-col">
+            <h4>Life at Foodie</h4>
+            <a href="#">Explore With Foodie</a>
+            <a href="#">Foodie News</a>
+            <a href="#">Snackables</a>
+
+            <h4 style="margin-top:20px">Social Links</h4>
+            <div class="footer-socials">
+                <a href="#" class="social-icon" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="#" class="social-icon" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                </a>
+                <a href="#" class="social-icon" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                </a>
+                <a href="#" class="social-icon" aria-label="Twitter">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+        <p class="footer-app-text">For better experience, download the <strong>Foodie</strong> app now</p>
+        <div class="footer-apps">
+            <a href="#" class="app-badge">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="app-icon"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                <span><small>Download on the</small><strong>App Store</strong></span>
+            </a>
+            <a href="#" class="app-badge">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="app-icon"><path d="M3.18 23.77A2.5 2.5 0 012 21.5V2.5A2.5 2.5 0 013.18.73l11.31 11.52L3.18 23.77zM20.43 13.7l-2.67 1.51-2.95-3 2.95-3 2.68 1.52a1.45 1.45 0 010 2.53l-.01-.06zM5.16 1.27l9.24 9.43-2.85 2.85L5.16 1.27zm0 21.46l6.39-12.28 2.85 2.85-9.24 9.43z"/></svg>
+                <span><small>GET IT ON</small><strong>Google Play</strong></span>
+            </a>
+        </div>
+    </div>
+
+</footer>
+
+<!-- NO JavaScript -->
+</body>
+</html>
